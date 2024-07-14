@@ -20,7 +20,7 @@ class Book:
         return not self.__is_checked_out
 
 class Library:
-    def init(self):
+    def __init__(self):
         self.__books = []
 
     def add_book(self, book):
@@ -46,28 +46,5 @@ class Library:
             for book in available_books:
                 print(f"{book.title} by {book.author}")
         else:
-            print("No available books")
-from library_management import Book, Library
+            print("No available books at the moment.")
 
-def main():
-    # Setup a small library
-    library = Library()
-    library.add_book(Book("Brave New World", "Aldous Huxley"))
-    library.add_book(Book("1984", "George Orwell"))
-
-    # Initial list of available books
-    print("Available books after setup:")
-    library.list_available_books()
-
-    # Simulate checking out a book
-    print("\n" + library.check_out_book("1984"))
-    print("\nAvailable books after checking out '1984':")
-    library.list_available_books()
-
-    # Simulate returning a book
-    print("\n" + library.return_book("1984"))
-    print("\nAvailable books after returning '1984':")
-    library.list_available_books()
-
-if __name__ == "__main__":
-    main()
